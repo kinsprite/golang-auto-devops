@@ -1,4 +1,4 @@
-# GitLab Hello World in Golang
+# Golang Auto DevOps in GitLab
 
 ## build
 
@@ -6,7 +6,7 @@ on Windows:
 ```cmd
 set GOPROXY=https://goproxy.io
 set GIN_MODE=release
-go build -tags=jsoniter -o gitlab-hello-world.exe .
+go build -tags=jsoniter -o golang-auto-devops.exe .
 ```
 
 or Linux:
@@ -14,5 +14,5 @@ or Linux:
 ```shell
 export GOPROXY=https://goproxy.io
 export GIN_MODE=release
-go build -tags=jsoniter -o gitlab-hello-world .
+go build -tags=jsoniter -o golang-auto-devops .
 ```
