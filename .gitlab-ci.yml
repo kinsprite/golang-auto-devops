@@ -13,10 +13,38 @@ variables:
   DOCKER_TLS_CERTDIR: ""
   # Database
   POSTGRES_ENABLED: "false"
+  # use custom test
+  TEST_DISABLED: "true"
 
+stages:
+  - test
+  - build
+  - deploy  # dummy stage to follow the template guidelines
+  - review
+  - dast
+  - staging
+  - canary
+  - production
+  - incremental rollout 10%
+  - incremental rollout 25%
+  - incremental rollout 50%
+  - incremental rollout 100%
+  - performance
+  - cleanup
 
 .auto-deploy:
   image: "kinsprite/gitlab-auto-deploy-image:v0.1.0"
 
 build:
   image: "kinsprite/gitlab-auto-build-image:stable"
+
+golang_test:
+  stage: test
+  image: golang:1.12.9-alpine3.10
+  script:
+    - go mod vendor
+    - go vet -mod=vendor .
+    - go test -mod=vendor .
+  only:
+    - branches
+    - tags
