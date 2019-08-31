@@ -5,7 +5,7 @@ variables:
   POSTGRES_ENABLED: "false"
 
 .auto-deploy:
-  image: "registry.qinzhiqiang.cn/custom-auto-deploy-image:v0.1.0"
+  image: "kinsprite/gitlab-auto-deploy-image:v0.1.0"
 
 build:
-  image: "registry.qinzhiqiang.cn/custom-auto-build-image:stable"
+  image: "kinsprite/gitlab-auto-build-image:stable"
