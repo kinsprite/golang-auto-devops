@@ -15,6 +15,7 @@ variables:
   POSTGRES_ENABLED: "false"
   # use custom test
   TEST_DISABLED: "true"
+  PERFORMANCE_DISABLED: "true"
   # healthz
   HELM_UPGRADE_EXTRA_ARGS: "--set livenessProbe.path=/healthz --set readinessProbe.path=/healthz"
 
