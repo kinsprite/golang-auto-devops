@@ -16,6 +16,13 @@ variables:
   # use custom test
   TEST_DISABLED: "true"
 
+before_script:
+  #- cd $CI_PROJECT_DIR
+  - export GOPROXY=https://goproxy.io
+  - export GIN_MODE=release
+  - export CGO_ENABLED=0
+  - export GO111MODULE=on
+
 stages:
   - test
   - build
